@@ -1,0 +1,31 @@
+<%- include("_header") -%>
+
+<h1>List of People (<%= model.length %>)</h1>
+
+<div class="table-responsive-sm">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Last Name</th>
+        <th class="d-print-none">
+          <a class="btn btn-sm btn-success" href="/create">Add</a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (const person of model) { %>
+        <tr>
+          <td><%= person.First_Name %></td>
+          <td><%= person.Middle_Name %></td>
+          <td><%= person.Last_Name %></td>
+          <td class="d-print-none">
+            <a class="btn btn-sm btn-warning" href="/edit/<%= person.Person_ID %>">Modify</a>
+            <a class="btn btn-sm btn-danger" href="/delete/<%= person.Person_ID %>">Delete</a>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
